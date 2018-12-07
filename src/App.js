@@ -224,7 +224,7 @@ class App extends Component {
           </Subtitle>
         </Slide>
         <Slide>
-          <Browser url="http://talks.sambego.be" />
+          <Browser url="https://talks.sambego.be" />
         </Slide>
         <Slide>
           <Subtitle>
