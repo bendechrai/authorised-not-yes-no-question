@@ -45,7 +45,7 @@ export default class Rainbow extends Component {
   render() {
     return (
       <Slide style={{ backgroundColor: this.state.background }}>
-        <Subtitle>Rainbows</Subtitle>
+        <Subtitle>Rainbows 🌈</Subtitle>
       </Slide>
     );
   }
