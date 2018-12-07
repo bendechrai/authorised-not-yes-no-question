@@ -4,7 +4,7 @@ import { Slide, Subtitle } from "@sambego/diorama";
 export default class Rainbow extends Component {
   state = {
     hue: 0,
-    background: "rgb(0, 0, 0)"
+    background: "hsl(1, 20%, 50)"
   };
 
   static getHueForChannel(hue, channel) {
@@ -27,31 +27,24 @@ export default class Rainbow extends Component {
   }
 
   initAnimation() {
-    const maxHue = 765;
+    const maxHue = 360;
     const step = 1;
 
     window.setInterval(() => {
-      const newHue =
-        this.state.hue + step >= maxHue ? 0 : this.state.hue + step;
-      const newColor = `rgb(${Rainbow.getHueForChannel(
-        newHue,
-        0
-      )}, ${Rainbow.getHueForChannel(newHue, 1)}, ${Rainbow.getHueForChannel(
-        newHue,
-        2
-      )})`;
+      const { hue } = this.state;
+      const newHue = hue + step >= maxHue ? 0 : hue + step;
 
       this.setState(state => ({
         ...state,
         hue: newHue,
-        background: newColor
+        background: `hsl(${newHue}, 20%, 50%)`
       }));
-    }, 5);
+    }, 10);
   }
 
   render() {
     return (
-      <Slide style={{ background: this.state.background }}>
+      <Slide style={{ backgroundColor: this.state.background }}>
         <Subtitle>Rainbows</Subtitle>
       </Slide>
     );
