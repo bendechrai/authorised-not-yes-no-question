@@ -94,7 +94,7 @@ class App extends Component {
           <Text>
             And some regular <Highlight>text</Highlight>. Use this if you have a
             bigger block of text you want to display. Using a big block of text
-            on you slides might be overwhelming, but sometimes you don't have
+            on your slides might be overwhelming, but sometimes you don't have
             any choice.
           </Text>
         </Slide>

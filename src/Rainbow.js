@@ -4,7 +4,7 @@ import { Slide, Subtitle } from "@sambego/diorama";
 export default class Rainbow extends Component {
   state = {
     hue: 0,
-    background: "hsl(1, 20%, 50)"
+    background: "hsl(1, 30%, 50)"
   };
 
   static getHueForChannel(hue, channel) {
@@ -37,7 +37,7 @@ export default class Rainbow extends Component {
       this.setState(state => ({
         ...state,
         hue: newHue,
-        background: `hsl(${newHue}, 20%, 50%)`
+        background: `hsl(${newHue}, 30%, 50%)`
       }));
     }, 10);
   }
