@@ -14,6 +14,9 @@ import {
   List,
   Browser
 } from "@sambego/diorama";
+import "prismjs/components/prism-bash.min.js";
+import "prismjs/components/prism-jsx.min.js";
+
 import Alert from "./Alert";
 import Rainbow from "./Rainbow";
 
@@ -28,7 +31,7 @@ class App extends Component {
 
   render() {
     return (
-      <Deck footer={App.footer}>
+      <Deck footer={App.footer} navigation>
         <Slide
           note="Welcome to diorama, head on over to https://sambego.github.io/diorama/ for more information!"
           style={{ backgroundColor: "#99c794" }}
@@ -43,8 +46,8 @@ class App extends Component {
         </Slide>
         <Slide>
           <Text>
-            <a href="https://sambego.github.io/diorama/">
-              https://sambego.github.io/diorama
+            <a href="https://github.com/sambego/diorama/">
+              https://github.com/sambego/diorama
             </a>
           </Text>
         </Slide>
@@ -52,7 +55,7 @@ class App extends Component {
           <Subtitle>Getting started is easy!</Subtitle>
         </Slide>
         <Slide>
-          <Code code={"npm install @sambego/diorama"} lang="markup" />
+          <Code code={"npm install @sambego/diorama"} lang="bash" />
         </Slide>
         <Slide>
           <Subtitle>
@@ -60,7 +63,7 @@ class App extends Component {
           </Subtitle>
         </Slide>
         <Slide>
-          <Code code={"<Deck>\n  ...\n</Deck>"} />
+          <Code code={"<Deck>\n  ...\n</Deck>"} lang="jsx" />
         </Slide>
         <Slide>
           <Subtitle>
@@ -70,6 +73,7 @@ class App extends Component {
         <Slide>
           <Code
             code={"<Deck>\n  <Slide>...</Slide\n  <Slide>...</Slide\n</Deck>"}
+            lang="jsx"
           />
         </Slide>
         <Slide>
