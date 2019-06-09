@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://sambego.github.io/diorama-demo",
   "dependencies": {
-    "@sambego/diorama": "1.0.2",
+    "@sambego/diorama": "^1.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

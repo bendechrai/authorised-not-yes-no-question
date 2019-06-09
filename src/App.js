@@ -12,7 +12,8 @@ import {
   Highlight,
   Quote,
   List,
-  Browser
+  Browser,
+  Video
 } from "@sambego/diorama";
 import "prismjs/components/prism-bash.min.js";
 import "prismjs/components/prism-jsx.min.js";
@@ -25,15 +26,23 @@ import Poes from "./img/poes.jpg";
 import Husky from "./img/husky.jpg";
 import Capi from "./img/cap.jpg";
 import Orca from "./img/orca.jpg";
+import PresenterNotes1 from "./img/presenter-1.png";
+import PresenterNotes2 from "./img/presenter-2.png";
+
+import Iceland from "./video/iceland.mp4";
 
 class App extends Component {
   static footer = <Footer left="@sambego" />;
 
   render() {
     return (
-      <Deck footer={App.footer} navigation>
+      <Deck
+        footer={App.footer}
+        navigation
+        presenterNotes={window.location.search.includes("presenterNotes")}
+      >
         <Slide
-          note="Welcome to diorama, head on over to https://sambego.github.io/diorama/ for more information!"
+          notes="Welcome to diorama, head on over to https://sambego.github.io/diorama/ for more information!"
           style={{ backgroundColor: "#99c794" }}
         >
           <Title style={{ color: "white" }}>Diorama</Title>
@@ -51,7 +60,7 @@ class App extends Component {
             </a>
           </Text>
         </Slide>
-        <Slide>
+        <Slide notes="Getting started with Diorama is easy, just install the npm package. Once installed you're all set to create that presentation!">
           <Subtitle>Getting started is easy!</Subtitle>
         </Slide>
         <Slide>
@@ -95,6 +104,8 @@ class App extends Component {
           <Subtitle>A Subtitle, this is a bit smaller</Subtitle>
         </Slide>
         <Slide>
+          {" "}
+          st
           <Text>
             And some regular <Highlight>text</Highlight>. Use this if you have a
             bigger block of text you want to display. Using a big block of text
@@ -107,7 +118,7 @@ class App extends Component {
             All slides are equal, but some slides are more equal than others.
           </Quote>
         </Slide>
-        <Slide>
+        <Slide notes="You can add pictures to your slides to illustrate your thoughts.">
           <Subtitle>
             A <Highlight>picture</Highlight> is worth a thousand words
           </Subtitle>
@@ -210,6 +221,12 @@ class App extends Component {
           </Columns>
         </Slide>
         <Slide>
+          <Subtitle>Hey look, these are moving pictures!</Subtitle>
+        </Slide>
+        <Slide>
+          <Video src={Iceland} mute loop autoplay />
+        </Slide>
+        <Slide>
           <Subtitle>
             Showing <Highlight>code</Highlight> is easy too!
           </Subtitle>
@@ -261,13 +278,50 @@ class App extends Component {
             Or even <Highlight>better</Highlight>!
           </Subtitle>
         </Slide>
-        <Slide>
-          <Rainbow />
-        </Slide>
+        <Rainbow />
         <Slide>
           <Subtitle>
             There's <Highlight>no limit</Highlight> to what you can do!
           </Subtitle>
+        </Slide>
+        <Slide>
+          <Subtitle>
+            You need some <Highlight>notes</Highlight> while presenting?
+          </Subtitle>
+        </Slide>
+        <Slide>
+          <Image
+            src={PresenterNotes1}
+            alt="A preview of the presenter notes window"
+            contain
+          />
+        </Slide>
+        <Slide>
+          <Image
+            src={PresenterNotes2}
+            alt="A preview of the presenter notes window"
+            contain
+          />
+        </Slide>
+        <Slide>
+          <Subtitle>
+            Add the <Highlight>presenter</Highlight> property to the{" "}
+            <Highlight>Deck</Highlight> component.
+          </Subtitle>
+        </Slide>
+        <Slide>
+          <Code code={"<Deck presenterNotes>\n  ...\n</Deck>"} lang="jsx" />
+        </Slide>
+        <Slide>
+          <Text>
+            To see the presenter notes in action click{" "}
+            <a
+              href="https://sambego.github.io/diorama-demo/"
+              title="Open presentation with presenter notes"
+            >
+              here
+            </a>
+          </Text>
         </Slide>
         <Slide>
           <Subtitle>
