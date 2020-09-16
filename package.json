@@ -1,8 +1,8 @@
 {
-  "name": "diorama-test",
+  "name": "authorised-not-yes-no-question",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sambego.github.io/diorama-demo",
+  "homepage": "https://bendechrai.github.io/authorised-not-yes-no-question",
   "dependencies": {
     "@sambego/diorama": "^1.1.0",
     "prop-types": "^15.6.2",
