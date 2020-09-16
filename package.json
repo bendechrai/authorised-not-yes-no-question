@@ -6,8 +6,8 @@
   "dependencies": {
     "@sambego/diorama": "^1.1.0",
     "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {
@@ -28,6 +28,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.2.0"
   }
 }

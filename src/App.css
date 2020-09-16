@@ -2,31 +2,62 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.diorama-highlight {
+  background-color: #eb5424aa;
+  border-bottom: 0.1em solid #eb5424;
+  color: white;
+  padding: 0 0.3em;
+}
+
+.diorama-slide.highlight {
+  color: white;
+  background-color: #eb5424;
+}
+.diorama-slide.highlight h1,
+.diorama-slide.highlight h2 {
+  color: #eb5424;
+  -webkit-text-stroke: 8px white;
+  paint-order: "stroke fill";
+}
+.diorama-slide.highlight h2 {
+  -webkit-text-stroke: 4px white;
+}
+
+.diorama-slide.spaceout .diorama-content {
+  justify-content: space-around;
+}
+
+.diorama-slide .diorama-content {
+  gap: 2em;
+}
+
+.diorama-slide .diorama-columns {
+  height: auto;
+}
+
+.diorama-slide .diorama-columns .align-top {
+  justify-content: flex-start;
+}
+
+.diorama-slide .diorama-columns .smaller li,
+.diorama-slide .diorama-text.smaller {
+  font-size: 2em;
+}
+
+img.icon {
+  width: 40%;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
   }
 }

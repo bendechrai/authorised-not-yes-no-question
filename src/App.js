@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import {
   Deck,
   Slide,
@@ -13,333 +13,690 @@ import {
   Quote,
   List,
   Browser,
-  Video
-} from "@sambego/diorama";
-import "prismjs/components/prism-bash.min.js";
-import "prismjs/components/prism-jsx.min.js";
+  Video,
+} from "@sambego/diorama"
+import "prismjs/components/prism-bash.min.js"
+import "prismjs/components/prism-jsx.min.js"
+import "prismjs/components/prism-javascript.min.js"
+import "./App.css"
 
-import Alert from "./Alert";
-import Rainbow from "./Rainbow";
+import Alert from "./Alert"
+import Rainbow from "./Rainbow"
 
-import Sam from "./img/sam.jpg";
-import Poes from "./img/poes.jpg";
-import Husky from "./img/husky.jpg";
-import Capi from "./img/cap.jpg";
-import Orca from "./img/orca.jpg";
-import PresenterNotes1 from "./img/presenter-1.png";
-import PresenterNotes2 from "./img/presenter-2.png";
+import Ben from "./img/ben.jpg"
+import LoginPage from "./img/login-page.png"
+import SocialLogins from "./img/social-logins.png"
 
-import Iceland from "./video/iceland.mp4";
+import IconUser from "./img/icons/User.svg"
+import IconRole from "./img/icons/Generic-Enterprise-Directory.svg"
+import IconPermission from "./img/icons/Certificate.svg"
+
+import Poes from "./img/poes.jpg"
+import Husky from "./img/husky.jpg"
+import Capi from "./img/cap.jpg"
+import Orca from "./img/orca.jpg"
+import PresenterNotes1 from "./img/presenter-1.png"
+import PresenterNotes2 from "./img/presenter-2.png"
+
+import Iceland from "./video/iceland.mp4"
 
 class App extends Component {
-  static footer = <Footer left="@sambego" />;
+  static footer = (
+    <Footer
+      style={{
+        color: "#eb5424",
+        webkitTextStroke: "4px white",
+        paintOrder: "stroke fill",
+      }}
+      left="@bendechrai"
+    />
+  )
 
   render() {
     return (
       <Deck
         footer={App.footer}
-        navigation
-        presenterNotes={window.location.search.includes("presenterNotes")}
+        presenterNotes={
+          window.location.search.includes("presenterNotes") // navigation
+        }
       >
-        <Slide
-          notes="Welcome to diorama, head on over to https://sambego.github.io/diorama/ for more information!"
-          style={{ backgroundColor: "#99c794" }}
-        >
-          <Title style={{ color: "white" }}>Diorama</Title>
+        <Slide className="highlight">
+          <Title>Authorised is Not a Yes/No Question</Title>
         </Slide>
         <Slide>
+          <Code code={`if (user.isAuthenticated) {\n  ... do stuff\n}`} lang="javascript" />
+        </Slide>
+        <Slide>
+          <Image src={LoginPage} fragment />
+        </Slide>
+        <Slide>
+          <Image src={SocialLogins} fragment />
+        </Slide>
+        <Slide>
+          <Title>Logged In?</Title>
           <Subtitle>
-            <Highlight>Easy</Highlight> and <Highlight>extendable</Highlight>{" "}
-            React presentations
+            No / <Highlight>Yes</Highlight>
           </Subtitle>
         </Slide>
         <Slide>
-          <Text>
-            <a href="https://github.com/sambego/diorama/">
-              https://github.com/sambego/diorama
-            </a>
-          </Text>
-        </Slide>
-        <Slide notes="Getting started with Diorama is easy, just install the npm package. Once installed you're all set to create that presentation!">
-          <Subtitle>Getting started is easy!</Subtitle>
-        </Slide>
-        <Slide>
-          <Code code={"npm install @sambego/diorama"} lang="bash" />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            Now create a <Highlight>deck</Highlight>
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Code code={"<Deck>\n  ...\n</Deck>"} lang="jsx" />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            Once you've got a deck, create some <Highlight>slides</Highlight>
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Code
-            code={"<Deck>\n  <Slide>...</Slide\n  <Slide>...</Slide\n</Deck>"}
-            lang="jsx"
-          />
-        </Slide>
-        <Slide>
-          <Text>
-            The <Highlight>deck</Highlight> component accepts any valid React
-            node. By using the <Highlight>Slide</Highlight> component, you make
-            sure they display using all available space.
-          </Text>
-        </Slide>
-        <Slide>
-          <Subtitle>
-            We've got a few frequently used component to use in your slides
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Title>A Title</Title>
-        </Slide>
-        <Slide>
-          <Subtitle>A Subtitle, this is a bit smaller</Subtitle>
-        </Slide>
-        <Slide>
-          {" "}
-          st
-          <Text>
-            And some regular <Highlight>text</Highlight>. Use this if you have a
-            bigger block of text you want to display. Using a big block of text
-            on your slides might be overwhelming, but sometimes you don't have
-            any choice.
-          </Text>
-        </Slide>
-        <Slide>
-          <Quote quotee="Sam Bellen">
-            All slides are equal, but some slides are more equal than others.
-          </Quote>
-        </Slide>
-        <Slide notes="You can add pictures to your slides to illustrate your thoughts.">
-          <Subtitle>
-            A <Highlight>picture</Highlight> is worth a thousand words
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Image src={Poes} alt="A cat looking into the camera" />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            Even better when <Highlight>full screen</Highlight>
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Image src={Poes} alt="A cat looking into the camera" full />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            <Highlight>Lists</Highlight>? We've got your back!
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <List>
-            <li>eeny</li>
-            <li>meeny</li>
-            <li>miny</li>
-            <li>moe</li>
-          </List>
-        </Slide>
-        <Slide>
-          <Subtitle>
-            Why not <Highlight>order</Highlight> them?
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <List ordered>
-            <li>First</li>
-            <li>Second</li>
-            <li>Third</li>
-            <li>Fourth</li>
-          </List>
-        </Slide>
-        <Slide>
-          <Subtitle>
-            Need more structure? <br />
-            Try <Highlight>columns</Highlight>
-          </Subtitle>
+          <Code code={`if (user.hasPermission('edit:items')) {\n ... \n}`} lang="javascript" />
         </Slide>
         <Slide>
           <Columns>
             <div>
-              <Image src={Sam} alt="A picture of me" full color="#99c794" />
+              <Image src={Ben} alt="A picture of me" full color="#bbbb99" />
             </div>
             <div>
-              <Subtitle>Sam Bellen</Subtitle>
+              <Subtitle>Ben Dechrai</Subtitle>
               <List>
-                <li>Developer Evangelist</li>
-                <li>Auth0</li>
-                <li>Google Developer Expert</li>
-                <li>Fronteers</li>
-                <li>@sambego</li>
+                <li>
+                  <span role="img" aria-label="old man">
+                    👴
+                  </span>{" "}
+                  software dev for 21 years
+                </li>
+                <li>
+                  <span role="img" aria-label="monkey speak no evil">
+                    🙊
+                  </span>{" "}
+                  privacy advocate
+                </li>
+                <li>
+                  <span role="img" aria-label="green heart">
+                    💚
+                  </span>{" "}
+                  dev / open source communities
+                </li>
+                <li>
+                  <span role="img" aria-label="shield">
+                    🛡️
+                  </span>{" "}
+                  dev advocate @ auth0
+                </li>
+                <li>
+                  <span role="img" aria-label="bird">
+                    🐦
+                  </span>{" "}
+                  @bendechrai
+                </li>
+              </List>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide>
+          <Title>Access Control</Title>
+        </Slide>
+        <Slide className="collapse-columns">
+          <Title>Access Control</Title>
+          <Columns>
+            <div>
+              <Text>
+                <Highlight>Attribute-based</Highlight>
+                <br />
+                Access Control
+                <br />
+                (ABAC)
+              </Text>
+            </div>
+            <div>
+              <Text>
+                <Highlight>Role-based</Highlight>
+                <br />
+                Access Control
+                <br />
+                (RBAC)
+              </Text>
+            </div>
+          </Columns>
+        </Slide>
+        {/* 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        */}
+        <Slide notes="Type: medical record, bank account, surveillance briefing, ...">
+          <Subtitle>Attribute-based Access Control</Subtitle>
+          <Columns className="smaller align-top">
+            <div>
+              <Text>Subject</Text>
+            </div>
+            <div>
+              <Text>Action</Text>
+            </div>
+            <div>
+              <Text>Object</Text>
+            </div>
+            <div>
+              <Text>Contextual</Text>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide notes="Type: medical record, bank account, surveillance briefing, ...">
+          <Subtitle>Attribute-based Access Control</Subtitle>
+          <Columns className="smaller align-top">
+            <div>
+              <Text>Subject</Text>
+              <List>
+                <li>Department</li>
+                <li>Clearance Level</li>
+                <li>Age</li>
+              </List>
+            </div>
+            <div>
+              <Text>Action</Text>
+            </div>
+            <div>
+              <Text>Object</Text>
+            </div>
+            <div>
+              <Text>Contextual</Text>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide notes="Type: medical record, bank account, surveillance briefing, ...">
+          <Subtitle>Attribute-based Access Control</Subtitle>
+          <Columns className="smaller align-top">
+            <div>
+              <Text>Subject</Text>
+              <List>
+                <li>Department</li>
+                <li>Clearance Level</li>
+                <li>Age</li>
+              </List>
+            </div>
+            <div>
+              <Text>Action</Text>
+              <List>
+                <li>Read</li>
+                <li>Update</li>
+                <li>Report</li>
+                <li>Approve</li>
+              </List>
+            </div>
+            <div>
+              <Text>Object</Text>
+            </div>
+            <div>
+              <Text>Contextual</Text>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide notes="Type: medical record, bank account, surveillance briefing, ...">
+          <Subtitle>Attribute-based Access Control</Subtitle>
+          <Columns className="smaller align-top">
+            <div>
+              <Text>Subject</Text>
+              <List>
+                <li>Department</li>
+                <li>Clearance Level</li>
+                <li>Age</li>
+              </List>
+            </div>
+            <div>
+              <Text>Action</Text>
+              <List>
+                <li>Read</li>
+                <li>Update</li>
+                <li>Report</li>
+                <li>Approve</li>
+              </List>
+            </div>
+            <div>
+              <Text>Object</Text>
+              <List>
+                <li>Type</li>
+                <li>Clearance Level</li>
+                <li>Geographic Restrctions</li>
+              </List>
+            </div>
+            <div>
+              <Text>Contextual</Text>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide notes="Type: medical record, bank account, surveillance briefing, ...">
+          <Subtitle>Attribute-based Access Control</Subtitle>
+          <Columns className="smaller align-top">
+            <div>
+              <Text>Subject</Text>
+              <List>
+                <li>Department</li>
+                <li>Clearance Level</li>
+                <li>Age</li>
+              </List>
+            </div>
+            <div>
+              <Text>Action</Text>
+              <List>
+                <li>Read</li>
+                <li>Update</li>
+                <li>Report</li>
+                <li>Approve</li>
+              </List>
+            </div>
+            <div>
+              <Text>Object</Text>
+              <List>
+                <li>Type</li>
+                <li>Clearance Level</li>
+                <li>Geographic Restrctions</li>
+              </List>
+            </div>
+            <div>
+              <Text>Contextual</Text>
+              <List>
+                <li>Time</li>
+                <li>Location</li>
+              </List>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide notes="Type: medical record, bank account, surveillance briefing, ...">
+          <Subtitle>Attribute-based Access Control</Subtitle>
+          <Columns className="smaller align-top">
+            <div>
+              <Text>Subject</Text>
+              <List>
+                <li>Department</li>
+                <li>Clearance Level</li>
+                <li>Age</li>
+              </List>
+            </div>
+            <div>
+              <Text>Action</Text>
+              <List>
+                <li>Read</li>
+                <li>Update</li>
+                <li>Report</li>
+                <li>
+                  <Highlight>Approve</Highlight>
+                </li>
+              </List>
+            </div>
+            <div>
+              <Text>Object</Text>
+              <List>
+                <li>Type</li>
+                <li>Clearance Level</li>
+                <li>Geographic Restrctions</li>
+              </List>
+            </div>
+            <div>
+              <Text>Contextual</Text>
+              <List>
+                <li>Time</li>
+                <li>Location</li>
+              </List>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide notes="Type: medical record, bank account, surveillance briefing, ...">
+          <Subtitle>Attribute-based Access Control</Subtitle>
+          <Columns className="smaller align-top">
+            <div>
+              <Text>Subject</Text>
+              <List>
+                <li>Department</li>
+                <li>
+                  <Highlight>Clearance Level</Highlight>
+                </li>
+                <li>Age</li>
+              </List>
+            </div>
+            <div>
+              <Text>Action</Text>
+              <List>
+                <li>Read</li>
+                <li>Update</li>
+                <li>Report</li>
+                <li>
+                  <Highlight>Approve</Highlight>
+                </li>
+              </List>
+            </div>
+            <div>
+              <Text>Object</Text>
+              <List>
+                <li>Type</li>
+                <li>
+                  <Highlight>Clearance Level</Highlight>
+                </li>
+                <li>Geographic Restrctions</li>
+              </List>
+            </div>
+            <div>
+              <Text>Contextual</Text>
+              <List>
+                <li>Time</li>
+                <li>Location</li>
+              </List>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide notes="Type: medical record, bank account, surveillance briefing, ...">
+          <Subtitle>Attribute-based Access Control</Subtitle>
+          <Columns className="smaller align-top">
+            <div>
+              <Text>Subject</Text>
+              <List>
+                <li>Department</li>
+                <li>
+                  <Highlight>Clearance Level</Highlight>
+                </li>
+                <li>Age</li>
+              </List>
+            </div>
+            <div>
+              <Text>Action</Text>
+              <List>
+                <li>Read</li>
+                <li>Update</li>
+                <li>Report</li>
+                <li>
+                  <Highlight>Approve</Highlight>
+                </li>
+              </List>
+            </div>
+            <div>
+              <Text>Object</Text>
+              <List>
+                <li>Type</li>
+                <li>
+                  <Highlight>Clearance Level</Highlight>
+                </li>
+                <li>
+                  <Highlight>Geographic Restrctions</Highlight>
+                </li>
+              </List>
+            </div>
+            <div>
+              <Text>Contextual</Text>
+              <List>
+                <li>Time</li>
+                <li>
+                  <Highlight>Location</Highlight>
+                </li>
+              </List>
+            </div>
+          </Columns>
+        </Slide>
+        {/* 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        */}
+        <Slide className="collapse-columns">
+          <Subtitle>Role-based Access Control</Subtitle>
+          <Columns className="align-top">
+            <div>
+              <Text>User</Text>
+              <img className="icon" src={IconUser} alt="" />
+            </div>
+            <div>
+              <Text>Role</Text>
+              <img className="icon" src={IconRole} alt="" />
+            </div>
+            <div>
+              <Text>Permission</Text>
+              <img className="icon" src={IconPermission} alt="" />
+            </div>
+          </Columns>
+        </Slide>
+        <Slide className="collapse-columns">
+          <Subtitle>Role-based Access Control</Subtitle>
+          <Columns className="align-top">
+            <div>
+              <Text>User</Text>
+              <img className="icon" src={IconUser} alt="" />
+              <Text>Sarah</Text>
+            </div>
+            <div>
+              <Text>Role</Text>
+              <img className="icon" src={IconRole} alt="" />
+              <Text>Senior Partner</Text>
+            </div>
+            <div>
+              <Text>Permission</Text>
+              <img className="icon" src={IconPermission} alt="" />
+              <Text>associates:terminate</Text>
+            </div>
+          </Columns>
+        </Slide>
+        <Slide className="highlight">
+          <Title>Comparison</Title>
+          <Columns className="align-top smaller">
+            <div>
+              <Subtitle>ABAC</Subtitle>
+              <List>
+                <li>Powerful</li>
+                <li>Complex</li>
+                <li>Fine-grain</li>
+              </List>
+            </div>
+            <div>
+              <Subtitle>RBAC</Subtitle>
+              <List>
+                <li>Simple</li>
+                <li>Fast</li>
+                <li>Coarse-grained</li>
               </List>
             </div>
           </Columns>
         </Slide>
         <Slide>
           <Subtitle>
-            Don't limit yourself to <br />
-            <Highlight>just 2 columns</Highlight>
+            So <Highlight>which</Highlight> should you use?
           </Subtitle>
+        </Slide>
+        <Slide>
+          <Subtitle>
+            So <Highlight>which</Highlight> should you use?
+          </Subtitle>
+          <Text>Both!</Text>
         </Slide>
         <Slide>
           <Columns>
             <div>
-              <Image src={Poes} alt="A picture of a cat" full color="#99c794" />
+              <Text>
+                Start with <Highlight>RBAC</Highlight>
+              </Text>
             </div>
             <div>
-              <Image
-                src={Husky}
-                alt="A picture of a husky"
-                full
-                color="#ec5f67"
-              />
-            </div>
-            <div>
-              <Image
-                src={Capi}
-                alt="A picture of a capybara"
-                full
-                color="#fac863"
-              />
-            </div>
-            <div>
-              <Image
-                src={Orca}
-                alt="A picture of a killer whale"
-                full
-                color="#c594c5"
-              />
+              <Text>&nbsp;</Text>
             </div>
           </Columns>
         </Slide>
         <Slide>
-          <Subtitle>Hey look, these are moving pictures!</Subtitle>
+          <Columns>
+            <div>
+              <Text>
+                Start with <Highlight>RBAC</Highlight>
+              </Text>
+            </div>
+            <div>
+              <Text>
+                Add <Highlight>ABAC</Highlight> where needed
+              </Text>
+            </div>
+          </Columns>
         </Slide>
-        <Slide>
-          <Video src={Iceland} mute loop autoplay />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            Showing <Highlight>code</Highlight> is easy too!
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Code
-            code={
-              "const showDelayedAlert = () => {\n  window.setTimeout(() => {\n    alert('This is an alert!');\n  }, 1000);\n}"
-            }
-          />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            You'll definitely will want to preview some{" "}
-            <Highlight>external links</Highlight> like this!
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Browser url="https://talks.sambego.be" />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            So <Highlight>why</Highlight> make a presentation in{" "}
-            <Highlight>React</Highlight>?
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Subtitle>
-            <Highlight>Instant shareability</Highlight>. Upload somwhere and
-            share.
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Subtitle>
-            <Highlight>Works on any device</Highlight>. Open a browser an rock
-            it on stage!
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Subtitle>
-            <Highlight>Live Demos!</Highlight>
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Alert />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            Or even <Highlight>better</Highlight>!
-          </Subtitle>
-        </Slide>
-        <Rainbow />
-        <Slide>
-          <Subtitle>
-            There's <Highlight>no limit</Highlight> to what you can do!
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Subtitle>
-            You need some <Highlight>notes</Highlight> while presenting?
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Image
-            src={PresenterNotes1}
-            alt="A preview of the presenter notes window"
-            contain
-          />
-        </Slide>
-        <Slide>
-          <Image
-            src={PresenterNotes2}
-            alt="A preview of the presenter notes window"
-            contain
-          />
-        </Slide>
-        <Slide>
-          <Subtitle>
-            Add the <Highlight>presenter</Highlight> property to the{" "}
-            <Highlight>Deck</Highlight> component.
-          </Subtitle>
-        </Slide>
-        <Slide>
-          <Code code={"<Deck presenterNotes>\n  ...\n</Deck>"} lang="jsx" />
+        <Slide className="highlight">
+          <Title>Demo Time!</Title>
         </Slide>
         <Slide>
           <Text>
-            To see the presenter notes in action click{" "}
-            <a
-              href="https://sambego.github.io/diorama-demo/"
-              title="Open presentation with presenter notes"
-            >
-              here
-            </a>
+            Let's create a <Highlight>Gatsby</Highlight> frontend
           </Text>
+          <Code
+            code={`gatsby new frontend\ncd frontend\nnpm i @auth0/auth0-react`}
+            lang="javascript"
+          />
         </Slide>
         <Slide>
-          <Subtitle>
-            So get started, download the{" "}
-            <Highlight>
-              <a
-                href="https://github.com/sambego/diorama"
-                style={{ color: "black" }}
-              >
-                npm package
-              </a>
-            </Highlight>
-            .
-          </Subtitle>
+          <Text>
+            Wrap the app with <Highlight>Auth0Provider</Highlight>
+          </Text>
+          <Code
+            code={`import { Auth0Provider } from "@auth0/auth0-react"
+
+export const wrapRootElement = ({ element }) => {
+  return (
+    <Auth0Provider
+      domain=...
+      clientId=...
+      audience=...
+      redirectUri=...
+      onRedirectCallback=...
+    >
+      {element}
+    </Auth0Provider>
+  )
+}`}
+            lang="jsx"
+          />
+        </Slide>
+        <Slide>
+          <Text>
+            Create an Admin page protected by <Highlight>withAuthenticationRequired()</Highlight>
+          </Text>
+          <Code
+            code={`import { withAuthenticationRequired } from "@auth0/auth0-react"
+
+
+const AdminPage = () => {
+  return (
+    ...
+  )
+}
+
+export default withAuthenticationRequired(AdminPage)`}
+            lang="jsx"
+          />
+        </Slide>
+        <Slide>
+          <Text>Add JWT capabilities to a Node.js Express API</Text>
+          <Code
+            code={
+              `import jwt from "express-jwt"
+import jwksRsa from "jwks-rsa"
+
+export const checkJwt = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: ` +
+              "`" +
+              "${process.env.AUTH0_ISSUER}.well-known/jwks.json" +
+              "`" +
+              `,
+  }),
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: ` +
+              "`" +
+              "${process.env.AUTH0_ISSUER}" +
+              "`" +
+              `,
+  algorithms: ["RS256"],
+})`
+            }
+            lang="javascript"
+          />
+        </Slide>
+        <Slide>
+          <Text>Add Authz capabilities</Text>
+          <Code
+            code={`const jwtAuthz = require("express-jwt-authz")
+
+export const checkPermissions = (permissions) => {
+  return jwtAuthz([permissions], {
+    customScopeKey: "permissions",
+    checkAllScopes: true,
+    failWithError: true,
+  })
+}`}
+            lang="javascript"
+          />
+        </Slide>
+        <Slide>
+          <Text>Lock endpoints to permissions</Text>
+          <Code
+            code={`itemsRouter.delete(
+  "/:id",
+  [
+    checkJwt,
+    checkPermissions('delete:items')
+  ],
+  async (...) => { ... }
+)`}
+            lang="jsx"
+          />
+        </Slide>
+        <Slide className="highlight">
+          <Browser url="http://localhost:8000" />
+        </Slide>
+        {/* 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        */}
+        <Slide>
+          <Columns>
+            <div>
+              <Image src={Ben} alt="A picture of me" full color="#bbbb99" />
+            </div>
+            <div>
+              <Subtitle>
+                Thank You{" "}
+                <span role="img" aria-label="green heart">
+                  💚
+                </span>
+              </Subtitle>
+              <List className="smaller">
+                <li>
+                  <span role="img" aria-label="bird">
+                    🐦
+                  </span>{" "}
+                  @bendechrai
+                </li>
+                <li>
+                  <span role="img" aria-label="shopping">
+                    🛍️
+                  </span>{" "}
+                  https://github.com/bendechrai/ye-olde-shoppe/
+                </li>
+                <li>
+                  <span role="img" aria-label="t-shirt">
+                    👕
+                  </span>{" "}
+                  https://a0.to/apidays-tshirt
+                </li>
+              </List>
+            </div>
+          </Columns>
         </Slide>
       </Deck>
-    );
+    )
   }
 }
 
-export default App;
+export default App
