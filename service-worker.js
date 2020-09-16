@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/diorama-demo/precache-manifest.bc4fddff13252aaa4c260a8b6d9fa25f.js"
+  "/authorised-not-yes-no-question/precache-manifest.6fdb04e116d859ce228f98962c731f5a.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/diorama-demo/index.html", {
+workbox.routing.registerNavigationRoute("/authorised-not-yes-no-question/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
