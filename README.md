@@ -1,5 +1,5 @@
-### Diorama Demo
+### Authorised is Not a Yes/No Question
 
-The demo can be found at https://sambego.github.io/diorama-demo/
+Whether you just want to identify site administrators, or need more fine-grained control, authentication and authorisation are critical aspects to almost all software.
 
-For more info go to https://github.com/Sambego/diorama#text
+The longer version of this talk includes a demo on implementing Role-Based Access Control (RBAC), and will help you understand the pros and cons compared to Attribute-Based Access Control (ABAC).
