@@ -541,7 +541,9 @@ class App extends Component {
             Let's create a <Highlight>Gatsby</Highlight> frontend
           </Text>
           <Code
-            code={`gatsby new frontend\ncd frontend\nnpm i @auth0/auth0-react`}
+            code={`gatsby new frontend
+cd frontend
+npm i @auth0/auth0-react`}
             lang="javascript"
           />
         </Slide>
@@ -590,28 +592,20 @@ export default withAuthenticationRequired(AdminPage)`}
           <Text>Add JWT capabilities to a Node.js Express API</Text>
           <Code
             code={
-              `import jwt from "express-jwt"
-import jwksRsa from "jwks-rsa"
+              `const jwt = require("express-jwt");
+const jwks = require("jwks-rsa");              
 
-export const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
+const jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: ` +
-              "`" +
-              "${process.env.AUTH0_ISSUER}.well-known/jwks.json" +
-              "`" +
-              `,
+    jwksUri: process.env.AUTH0_ISSUER + ".well-known/jwks.json",
   }),
   audience: process.env.AUTH0_AUDIENCE,
-  issuer: ` +
-              "`" +
-              "${process.env.AUTH0_ISSUER}" +
-              "`" +
-              `,
+  issuer: process.env.AUTH0_ISSUER,
   algorithms: ["RS256"],
-})`
+});`
             }
             lang="javascript"
           />
@@ -619,29 +613,27 @@ export const checkJwt = jwt({
         <Slide>
           <Text>Add Authz capabilities</Text>
           <Code
-            code={`const jwtAuthz = require("express-jwt-authz")
+            code={`const jwtAuthz = require("express-jwt-authz");
 
-export const checkPermissions = (permissions) => {
+const checkPermissions = (permissions) => {
   return jwtAuthz([permissions], {
     customScopeKey: "permissions",
     checkAllScopes: true,
     failWithError: true,
-  })
-}`}
+  });
+};`}
             lang="javascript"
           />
         </Slide>
         <Slide>
           <Text>Lock endpoints to permissions</Text>
           <Code
-            code={`itemsRouter.delete(
-  "/:id",
-  [
-    checkJwt,
-    checkPermissions('delete:items')
-  ],
-  async (...) => { ... }
-)`}
+            code={`app.use(jwtCheck);
+
+app.post("/items/",
+  checkPermissions("create:items"),
+  async (req, res) => {
+    ...`}
             lang="jsx"
           />
         </Slide>
