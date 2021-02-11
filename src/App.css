@@ -61,3 +61,24 @@ img.icon {
     opacity: 0;
   }
 }
+
+div.LuGwdVNUozycM7bGFyFja {
+  display: inline;
+}
+
+.auth0logo {
+  width: 4em;
+  vertical-align: bottom;
+}
+.twitterlogo {
+  width: 1em;
+  vertical-align: bottom;
+}
+
+.imageShadow {
+  box-shadow: 1.5rem 1.5rem 5rem 0 rgba(27, 43, 52, 0.2),
+    -1.5rem -1.5rem 5rem 0 rgba(27, 43, 52, 0.2),
+    -1.5rem 1.5rem 5rem 0 rgba(27, 43, 52, 0.2),
+    1.5rem -1.5rem 5rem 0 rgba(27, 43, 52, 0.2);
+  border-radius: 0.5rem;
+}

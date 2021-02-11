@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import {
   Deck,
   Slide,
@@ -10,35 +10,32 @@ import {
   Code,
   Footer,
   Highlight,
-  Quote,
+  // Quote,
   List,
   Browser,
-  Video,
-} from "@sambego/diorama"
-import "prismjs/components/prism-bash.min.js"
-import "prismjs/components/prism-jsx.min.js"
-import "prismjs/components/prism-javascript.min.js"
-import "./App.css"
+  // Video,
+} from "@sambego/diorama";
+import "prismjs/components/prism-bash.min.js";
+import "prismjs/components/prism-jsx.min.js";
+import "prismjs/components/prism-javascript.min.js";
+import "./App.css";
 
-import Alert from "./Alert"
-import Rainbow from "./Rainbow"
+// import Alert from "./Alert";
+// import Rainbow from "./Rainbow";
 
-import Ben from "./img/ben.jpg"
-import LoginPage from "./img/login-page.png"
-import SocialLogins from "./img/social-logins.png"
+import Auth0Logo from "./img/auth0.svg";
+import Twitter from "./img/twitter.svg";
 
-import IconUser from "./img/icons/User.svg"
-import IconRole from "./img/icons/Generic-Enterprise-Directory.svg"
-import IconPermission from "./img/icons/Certificate.svg"
+import Ben from "./img/ben.jpg";
+import LoginPage from "./img/login-page.png";
+import SocialLogins from "./img/social-logins.png";
 
-import Poes from "./img/poes.jpg"
-import Husky from "./img/husky.jpg"
-import Capi from "./img/cap.jpg"
-import Orca from "./img/orca.jpg"
-import PresenterNotes1 from "./img/presenter-1.png"
-import PresenterNotes2 from "./img/presenter-2.png"
+import IconUser from "./img/icons/User.svg";
+import IconRole from "./img/icons/Generic-Enterprise-Directory.svg";
+import IconPermission from "./img/icons/Certificate.svg";
 
-import Iceland from "./video/iceland.mp4"
+import QuickstartSPA from "./img/quickstart-spa.png";
+import QuickstartAPI from "./img/quickstart-api.png";
 
 class App extends Component {
   static footer = (
@@ -50,7 +47,7 @@ class App extends Component {
       }}
       left="@bendechrai"
     />
-  )
+  );
 
   render() {
     return (
@@ -64,7 +61,10 @@ class App extends Component {
           <Title>Authorised is Not a Yes/No Question</Title>
         </Slide>
         <Slide>
-          <Code code={`if (user.isAuthenticated) {\n  ... do stuff\n}`} lang="javascript" />
+          <Code
+            code={`if (user.isAuthenticated) {\n  ... do stuff\n}`}
+            lang="javascript"
+          />
         </Slide>
         <Slide>
           <Image src={LoginPage} fragment />
@@ -79,7 +79,10 @@ class App extends Component {
           </Subtitle>
         </Slide>
         <Slide>
-          <Code code={`if (user.hasPermission('edit:items')) {\n ... \n}`} lang="javascript" />
+          <Code
+            code={`if (user.hasPermission('edit:items')) {\n ... \n}`}
+            lang="javascript"
+          />
         </Slide>
         <Slide>
           <Columns>
@@ -99,7 +102,7 @@ class App extends Component {
                   <span role="img" aria-label="monkey speak no evil">
                     🙊
                   </span>{" "}
-                  privacy advocate
+                  security / privacy advocate
                 </li>
                 <li>
                   <span role="img" aria-label="green heart">
@@ -107,16 +110,12 @@ class App extends Component {
                   </span>{" "}
                   dev / open source communities
                 </li>
-                <li>
-                  <span role="img" aria-label="shield">
-                    🛡️
-                  </span>{" "}
-                  dev advocate @ auth0
+                <li className="about-auth0">
+                  <Image src={Auth0Logo} alt="Auth0" className="auth0logo" />{" "}
+                  dev advocate
                 </li>
                 <li>
-                  <span role="img" aria-label="bird">
-                    🐦
-                  </span>{" "}
+                  <Image src={Twitter} alt="Twitter" className="twitterlogo" />{" "}
                   @bendechrai
                 </li>
               </List>
@@ -483,7 +482,7 @@ class App extends Component {
               <List>
                 <li>Powerful</li>
                 <li>Complex</li>
-                <li>Fine-grain</li>
+                <li>Fine-grained</li>
               </List>
             </div>
             <div>
@@ -548,6 +547,12 @@ npm i @auth0/auth0-react`}
           />
         </Slide>
         <Slide>
+          <Image src={QuickstartSPA} contain className="imageShadow" />
+        </Slide>
+        <Slide>
+          <Image src={QuickstartAPI} contain className="imageShadow" />
+        </Slide>
+        <Slide>
           <Text>
             Wrap the app with <Highlight>Auth0Provider</Highlight>
           </Text>
@@ -572,7 +577,8 @@ export const wrapRootElement = ({ element }) => {
         </Slide>
         <Slide>
           <Text>
-            Create an Admin page protected by <Highlight>withAuthenticationRequired()</Highlight>
+            Create an Admin page protected by{" "}
+            <Highlight>withAuthenticationRequired()</Highlight>
           </Text>
           <Code
             code={`import { withAuthenticationRequired } from "@auth0/auth0-react"
@@ -591,8 +597,7 @@ export default withAuthenticationRequired(AdminPage)`}
         <Slide>
           <Text>Add JWT capabilities to a Node.js Express API</Text>
           <Code
-            code={
-              `const jwt = require("express-jwt");
+            code={`const jwt = require("express-jwt");
 const jwks = require("jwks-rsa");              
 
 const jwtCheck = jwt({
@@ -605,8 +610,7 @@ const jwtCheck = jwt({
   audience: process.env.AUTH0_AUDIENCE,
   issuer: process.env.AUTH0_ISSUER,
   algorithms: ["RS256"],
-});`
-            }
+});`}
             lang="javascript"
           />
         </Slide>
@@ -687,8 +691,8 @@ app.post("/items/",
           </Columns>
         </Slide>
       </Deck>
-    )
+    );
   }
 }
 
-export default App
+export default App;
