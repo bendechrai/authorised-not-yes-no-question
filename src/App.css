@@ -67,11 +67,11 @@ div.LuGwdVNUozycM7bGFyFja {
 }
 
 .auth0logo {
-  width: 4em;
+  width: 4em !important;
   vertical-align: bottom;
 }
 .twitterlogo {
-  width: 1em;
+  width: 1em !important;
   vertical-align: bottom;
 }
 
