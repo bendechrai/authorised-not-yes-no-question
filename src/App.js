@@ -677,22 +677,26 @@ app.post("/items/",
               </Subtitle>
               <List className="smaller">
                 <li>
-                  <span role="img" aria-label="bird">
-                    🐦
-                  </span>{" "}
+                  <Image src={Twitter} alt="Twitter" className="twitterlogo" />{" "}
                   @bendechrai
                 </li>
                 <li>
                   <span role="img" aria-label="shopping">
                     🛍️
                   </span>{" "}
-                  https://github.com/bendechrai/ye-olde-shoppe/
+                  github.com/bendechrai/ye-olde-shoppe/
+                </li>
+                <li>
+                  <span role="img" aria-label="projector">
+                    📽️
+                  </span>{" "}
+                  bendechrai.github.io/authorised-not-yes-no-question
                 </li>
                 <li>
                   <span role="img" aria-label="t-shirt">
                     👕
                   </span>{" "}
-                  https://a0.to/apidays-tshirt
+                  a0.to/feedback-ben
                 </li>
               </List>
             </div>
