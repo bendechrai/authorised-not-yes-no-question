@@ -252,7 +252,7 @@ class App extends Component {
               <List>
                 <li>Type</li>
                 <li>Clearance Level</li>
-                <li>Geographic Restrctions</li>
+                <li>Geographic Restrictions</li>
               </List>
             </div>
             <div>
@@ -285,7 +285,7 @@ class App extends Component {
               <List>
                 <li>Type</li>
                 <li>Clearance Level</li>
-                <li>Geographic Restrctions</li>
+                <li>Geographic Restrictions</li>
               </List>
             </div>
             <div>
@@ -324,7 +324,7 @@ class App extends Component {
               <List>
                 <li>Type</li>
                 <li>Clearance Level</li>
-                <li>Geographic Restrctions</li>
+                <li>Geographic Restrictions</li>
               </List>
             </div>
             <div>
@@ -367,7 +367,7 @@ class App extends Component {
                 <li>
                   <Highlight>Clearance Level</Highlight>
                 </li>
-                <li>Geographic Restrctions</li>
+                <li>Geographic Restrictions</li>
               </List>
             </div>
             <div>
@@ -411,7 +411,7 @@ class App extends Component {
                   <Highlight>Clearance Level</Highlight>
                 </li>
                 <li>
-                  <Highlight>Geographic Restrctions</Highlight>
+                  <Highlight>Geographic Restrictions</Highlight>
                 </li>
               </List>
             </div>
